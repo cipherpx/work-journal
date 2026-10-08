@@ -1,0 +1,29 @@
+Copyright (c) 2026 cipherpx
+
+Permission is hereby granted, free of charge, to any individual or non-profit academic
+institution obtaining a copy of this software and associated documentation files
+(the "Software"), to use, copy, modify, and redistribute the Software, subject
+to the following terms:
+
+1. Attribution. The above copyright notice and this permission notice must be
+included in all copies or substantial portions of the Software.
+
+2. Non-Commercial Restriction.
+   a. Use of this Software by any commercial entity, for any purpose, is strictly
+   prohibited, even for internal research activities without direct charge.
+   b. It is prohibited to integrate, embed, or incorporate this Software, in whole
+   or in part, into any commercial product, commercial service, or commercial
+   workflow, regardless of whether the source code of this Software is disclosed.
+   c. Any commercial use requires prior written permission from the copyright holder.
+
+3. Share-Alike. If you modify, adapt, or create derivative works based on this
+Software and distribute such derivative works to third parties, those derivative
+works must be licensed under the identical terms of this license. Local modification
+and private use without distribution are not subject to this share-alike requirement.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE COPYRIGHT HOLDER BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.

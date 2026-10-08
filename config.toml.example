@@ -1,0 +1,85 @@
+[path]
+db_path = "db/log.db"
+backup_dir = "backup"
+template_dir = "template"
+archive_daily = "archive/daily"
+archive_weekly = "archive/weekly"
+archive_batch = "archive/batch"
+system_log_dir = "system_log"
+
+[backup]
+max_backup_save = 30
+auto_backup_on_start = true
+auto_backup_on_modify = true
+
+[export]
+default_encoding = "utf-8"
+pdf_font = "STSong-Light"
+
+[classify]
+# 自动归纳关键词
+research_keys = "文献,论文,课题,综述,调研,科研"
+experiment_keys = "实验,测试,数据,仪器,样品,检测"
+course_keys = "上课,网课,作业,考试,课件,课程"
+project_keys = "项目,横向,纵向,结题,汇报"
+life_keys = "作息,运动,琐事,办事,会议,生活"
+
+[category]
+options = ['实验', '理论', '工作', '生活', '学习', '自定义']
+default = '实验'
+prefix_order = [ "实操", "见学", "整理",]
+
+[batch]
+# 支持自定义分隔符，可随便改： |  # 空格 \t 等
+# 批量分隔符（多个用英文逗号隔开）
+split_sep = "|,#,\t,;, "
+allow_multi_sep = true
+
+[display]
+star_symbol = '★'
+
+
+[edit]
+allow_edit_period = [ "day", "week",]
+allow_edit_cols = [ "date", "category", "title", "content", "star", "urgency", "importance",]
+all_cols = [ "seq", "id", "date", "category", "title", "content", "star", "urgency", "importance", "update_time",]
+
+[search]
+enable_fields = [ "id", "date", "category", "title", "content", "star", "urgency", "importance",]
+match_type_list = [ "模糊匹配", "精确匹配", "正则匹配",]
+
+[update]
+allowed_fields = [ "year", "month", "day", "title", "content", "priority", "importance", "star", "category", "tags",]
+
+[template_map]
+"{{YYYY}}" = ""
+"{{WEEK}}" = ""
+"{{START_DAY}}" = ""
+"{{END_DAY}}" = ""
+"{{理论}}" = ""
+"{{实验}}" = ""
+
+[week_docx_path]
+out_file = "/周报"
+
+[edit.col_cn]
+seq = "序号"
+id = "日志ID"
+date = "日期"
+category = "分类"
+title = "标题"
+content = "内容"
+star = "星级"
+urgency = "紧急度"
+importance = "重要性"
+update_time = "更新时间"
+
+[sort.priority]
+"高" = 3
+"中" = 2
+"低" = 1
+
+[sort.importance]
+"重要" = 3
+"次要" = 2
+"一般" = 1
