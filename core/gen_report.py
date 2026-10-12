@@ -1,11 +1,11 @@
 from core.log_service import query_by_day, query_by_week
-from core.path_util import get_root_path
+from core.cfg_manager import get_root_path,load_config_toml
 import os
-from diy_func import load_config_toml, replace_docx_content
+from core.utils import replace_docx_content
 from datetime import datetime, timedelta
 from docx import Document
 
-TPL_DIR = os.path.join(get_root_path(), "template")
+TPL_DIR = os.path.join(get_root_path(), str(load_config_toml()['path']['template_dir']))
 
 def load_tpl(name):
     path = os.path.join(TPL_DIR, name)
@@ -240,7 +240,7 @@ def save_weekly_report_to_docx(year, week):
         if not v:
             replace_dict[k] = '无'
 
-    return load_tplx('weekly.tplx',os.path.join(cfg['week_docx_path']['out_file'],f'周汇报_{year}_{week}_{first_day.strftime('%m%d')}_{last_day.strftime('%m%d')}.docx'),replace_dict)
+    return load_tplx('weekly.tplx',os.path.join(cfg['path']['weekly_report_dir'],f'周汇报_{year}_{week}_{first_day.strftime('%m%d')}_{last_day.strftime('%m%d')}.docx'),replace_dict)
 
 
 
@@ -252,7 +252,7 @@ def sort_items(items):
     priority_order = config.get("sort", {}).get("priority", {"高": 3, "中": 2, "低": 1})
     importance_order = config.get("sort", {}).get("importance", {"重要": 3, "次要": 2, "一般": 1})
 
-    #排序：星级 → 紧急度 → 重要度 → 早晚
+    #排序：星级 → 优先级 → 重要度 → 早晚
     items = sorted(
         items,
         key=lambda x: (

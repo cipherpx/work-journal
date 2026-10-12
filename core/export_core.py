@@ -1,6 +1,7 @@
-from core.path_util import get_root_path, make_dirs, now_ts_file_str
+from core.cfg_manager import get_root_path, load_config_toml
 from core.log_service import query_by_day
 from core.gen_report import gen_daily_report, gen_weekly_report
+from core.utils import make_dirs, now_ts_file_str
 import os
 import pyperclip
 from openpyxl import Workbook
@@ -11,7 +12,7 @@ from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 
 ROOT = get_root_path()
-EXPORT_DIR = os.path.join(ROOT, "export")
+EXPORT_DIR = os.path.join(ROOT, str(load_config_toml()['path']['export_dir']))
 make_dirs(EXPORT_DIR)
 
 def export_to_txt(content, filename=None):
@@ -27,7 +28,7 @@ def export_to_excel(year, month, day):
     wb = Workbook()
     ws = wb.active
     ws.title = "日志明细"
-    headers = ["ID", "日期", "标题", "内容", "紧急度", "重要度", "星级", "分类"]
+    headers = ["ID", "日期", "标题", "内容", "优先级", "重要度", "星级", "分类"]
     ws.append(headers)
     for it in items:
         ws.append([

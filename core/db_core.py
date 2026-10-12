@@ -2,10 +2,11 @@ import sqlite3
 import os
 import time
 from contextlib import contextmanager
-from core.path_util import get_root_path, make_dirs
+from core.cfg_manager import get_root_path, load_config_toml
+from core.utils import make_dirs
 
 ROOT = get_root_path()
-DB_PATH = os.path.join(ROOT, "db", "log.db")
+DB_PATH = os.path.join(ROOT, str(load_config_toml()['path']['db_path']))
 DB_LOCK = DB_PATH + ".lock"
 make_dirs(os.path.dirname(DB_PATH))
 
@@ -32,13 +33,13 @@ def db_conn():
         if os.path.exists(DB_LOCK):
             os.remove(DB_LOCK)
 
-def db_integrity_check():
+def db_integrity_check() -> bool:
     if not os.path.exists(DB_PATH):
         return False
     try:
         with db_conn() as c:
             res = c.execute("PRAGMA integrity_check;").fetchone()
-            return res[0] == "ok"
+            return res is not None and res[0] == "ok"
     except:
         return False
 

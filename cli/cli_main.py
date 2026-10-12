@@ -2,7 +2,7 @@ import sys
 from core.log_service import add_single_log, batch_parse_and_save, search_log
 from core.gen_report import gen_daily_report, gen_weekly_report,star_to_str
 from core.export_core import export_daily_all, export_weekly_all
-from core.path_util import now_datetime_str
+from core.utils import now_datetime_str
 from core.db_core import db_conn
 
 
@@ -77,7 +77,7 @@ def cli_add():
         print(f"❌ 失败：{e}")
 
 def cli_batch():
-    print("粘贴多行数据（格式：YYYY-MM-DD | 内容 | 紧急度 | 重要度 | 星级），输入空行结束：")
+    print("粘贴多行数据（格式：YYYY-MM-DD | 内容 | 优先级 | 重要度 | 星级），输入空行结束：")
     lines = []
     while True:
         line = input()

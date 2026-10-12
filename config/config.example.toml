@@ -1,20 +1,17 @@
+# 配置版本，请勿手动修改
+config_version = "1.0"
+
 [path]
 db_path = "db/log.db"
-backup_dir = "backup"
+backup_dir = "../backup"
 template_dir = "template"
-archive_daily = "archive/daily"
-archive_weekly = "archive/weekly"
-archive_batch = "archive/batch"
-system_log_dir = "system_log"
+export_dir = "export"
+weekly_report_dir = "export/周报"
 
 [backup]
 max_backup_save = 30
 auto_backup_on_start = true
 auto_backup_on_modify = true
-
-[export]
-default_encoding = "utf-8"
-pdf_font = "STSong-Light"
 
 [classify]
 # 自动归纳关键词
@@ -38,15 +35,11 @@ allow_multi_sep = true
 [display]
 star_symbol = '★'
 
-
 [edit]
 allow_edit_period = [ "day", "week",]
-allow_edit_cols = [ "date", "category", "title", "content", "star", "urgency", "importance",]
-all_cols = [ "seq", "id", "date", "category", "title", "content", "star", "urgency", "importance", "update_time",]
-
-[search]
-enable_fields = [ "id", "date", "category", "title", "content", "star", "urgency", "importance",]
-match_type_list = [ "模糊匹配", "精确匹配", "正则匹配",]
+allow_edit_cols = [ "date", "category", "title", "content", "star", "priority", "importance",]
+all_cols = [ "seq", "id", "date", "category", "title", "content", "star", "priority", "importance", "update_time",]
+exclude_search_cols = [ "seq",]
 
 [update]
 allowed_fields = [ "year", "month", "day", "title", "content", "priority", "importance", "star", "category", "tags",]
@@ -59,8 +52,8 @@ allowed_fields = [ "year", "month", "day", "title", "content", "priority", "impo
 "{{理论}}" = ""
 "{{实验}}" = ""
 
-[week_docx_path]
-out_file = "/周报"
+[ui_filter_options]
+star = [ "0", "1", "2", "3", "4", "5",]
 
 [edit.col_cn]
 seq = "序号"
@@ -70,9 +63,21 @@ category = "分类"
 title = "标题"
 content = "内容"
 star = "星级"
-urgency = "紧急度"
+priority = "优先级"
 importance = "重要性"
 update_time = "更新时间"
+
+[edit.col_type]
+seq = "number"
+id = "number"
+date = "datetime"
+category = "text"
+title = "text"
+content = "text"
+star = "number"
+priority = "number"
+importance = "number"
+update_time = "datetime"
 
 [sort.priority]
 "高" = 3
@@ -83,3 +88,16 @@ update_time = "更新时间"
 "重要" = 3
 "次要" = 2
 "一般" = 1
+
+[tuple_index.log_main]
+id = 0
+year = 2
+month = 3
+day = 4
+title = 6
+content = 7
+priority = 8
+importance = 9
+star = 10
+category = 11
+update_time = 14

@@ -1,11 +1,11 @@
 from core.db_core import db_conn
 from core.backup_core import backup_db_safe
-from core.path_util import now_datetime_str, load_config, get_week_num
+from core.cfg_manager import load_config_toml, add_category_if_not_exists
 import re
 from datetime import datetime,date
-from diy_func import load_config_toml, add_category_if_not_exists
+from core.utils import now_datetime_str, get_week_num
 
-cfg = load_config()
+cfg = load_config_toml()
 AUTO_BACKUP_START = cfg['backup']['auto_backup_on_start']
 AUTO_BACKUP_MODIFY = cfg['backup']['auto_backup_on_modify']
 

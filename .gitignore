@@ -46,11 +46,10 @@ logs/
 export/
 
 # ===用户本地配置、备份===
-config.toml
+**/config.toml
 db/
 backup/
 template/*.tplx
-CHANGELOG.md
 
 # === 缓存、中间数据 ===
 cache/
