@@ -2,6 +2,14 @@
 格式原则上遵循 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.0.0/)   
 版本号遵循语义化版本 SemVer：主版本.次版本.补丁版本 `MAJOR.MINOR.PATCH`  
 
+## [Unreleased]
+### 🐛 Bug Fixes（缺陷修复）  
+- 修复数据库表字段定义问题  
+
+### 📝 Docs（文档更新）
+- 修复README使用说明中的启动脚本  
+
+
 ## [v1.1.0] - 2026-10-12  
 
 ### ✨ Features（新增功能）  

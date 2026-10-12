@@ -65,7 +65,7 @@ def init_db():
             priority TEXT DEFAULT '中',
             importance TEXT DEFAULT '一般',
             star INTEGER DEFAULT 3,
-            auto_class TEXT DEFAULT '生活',
+            category TEXT DEFAULT '生活',
             tags TEXT DEFAULT '',
             create_time TEXT NOT NULL,
             update_time TEXT NOT NULL,
